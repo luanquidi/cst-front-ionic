@@ -1,0 +1,7 @@
+{
+  "name": "cst",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
