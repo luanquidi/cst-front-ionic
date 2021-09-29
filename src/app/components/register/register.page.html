@@ -1,0 +1,39 @@
+<ion-content>
+  <div class="body">
+    <div class="login-box">
+      <img
+        src="https://png.pngtree.com/template/20190809/ourlarge/pngtree-mountains-logo-vector-template-image_291029.jpg"
+        class="avatar" alt="Avatar Image">
+      <h1>Registro</h1>
+      <div class="form-login">
+
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="nombre" type="text"
+          placeholder="Ingresa el nombre"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="documento" type="text"
+          placeholder="Ingresa el documento"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="correo" type="text"
+          placeholder="Ingresa el correo electrónico"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="telefono" type="text"
+          placeholder="Ingresa el teléfono"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="ciudad" type="text"
+          placeholder="Ingresa la ciudad"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="password" type="password"
+          placeholder="Ingresa contraseña" (keyup.enter)="signIn()"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="repetirPassword"
+          type="password" placeholder="Repite la contraseña" (keyup.enter)="signIn()"></ion-input>
+
+        <div style="display: grid;">
+          <ion-button (click)="register()" class="btn-block btn-form" type="button">
+            Registrarse
+          </ion-button>
+          <ion-button (click)="backLogin()" class="btn-block btn-form" type="button">
+            Iniciar sesión
+          </ion-button>
+        </div>
+
+        <a style="margin: 10px !important; text-decoration: underline; font-size: 15px; text-align: center; display: block;"
+          href="#">Terminos y condiciones</a><br>
+      </div>
+    </div>
+  </div>
+</ion-content>

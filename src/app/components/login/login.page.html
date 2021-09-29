@@ -1,0 +1,31 @@
+<ion-content>
+  <div class="body">
+    <div class="login-box">
+      <img
+        src="https://png.pngtree.com/template/20190809/ourlarge/pngtree-mountains-logo-vector-template-image_291029.jpg"
+        class="avatar" alt="Avatar Image">
+      <h1>Inicio de Sesión</h1>
+      <div class="form-login">
+        <!-- USERNAME INPUT -->
+        <ion-label for="email">Correo electrónico</ion-label>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="email" type="text"
+          placeholder="Ingresa correo electrónico"></ion-input>
+        <!-- PASSWORD INPUT -->
+        <ion-label for="password">Contraseña</ion-label>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="password" type="password"
+          placeholder="Ingresa contraseña" (keyup.enter)="signIn()"></ion-input>
+        <div style="display: grid;">
+          <ion-button (click)="signIn()" class="btn-block btn-form" type="button">
+            Iniciar sesión
+          </ion-button>
+          <ion-button (click)="checkIn()" class="btn-block btn-form" type="button">
+            Registrarse
+          </ion-button>
+        </div>
+        <a style="margin: 10px !important; text-decoration: underline; font-size: 15px; text-align: center; display: block;"
+          href="#">Recuperar contraseña</a><br>
+        <!-- <a href="#">Don't have An account?</a> -->
+      </div>
+    </div>
+  </div>
+</ion-content>

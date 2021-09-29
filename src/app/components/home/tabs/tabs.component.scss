@@ -1,0 +1,20 @@
+ion-tab-bar {
+    margin: 0px 10px 0px 10px;
+    /* border-radius: 10px; */
+    border-top-left-radius: 15px 20px;
+    border-top-right-radius: 15px 20px;
+    background: #0D607E !important;
+    color: white;
+    --color: white;
+    --color-focused: red;
+    ion-tab-button:hover {
+       
+        ion-icon{
+            color: #000 !important;
+        }
+    }
+}
+
+ion-icon:hover {
+    color: #000 !important;
+}
