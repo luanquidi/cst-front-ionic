@@ -11,6 +11,9 @@ export class LoginPage implements OnInit {
 
   email: string;
   password: string;
+  private whiteListUsers = [
+    { email: 'luanquidi1@hotmail.com', password: 'luis' }
+  ]
 
   constructor(private router: Router, private toastService: ToastService) { }
 
@@ -19,17 +22,28 @@ export class LoginPage implements OnInit {
   }
 
   signIn(): void {
-    if (!this.password && !this.email) { 
+    if (!this.password && !this.email) {
       this.toastService.presentToast('danger', 'Todos los campos del formulario son requeridos.');
-      return; 
+      return;
     }
-    const token = '++--Token--++';
-    if (this.email != 'luanquidi1@hotmail.com' || this.password != 'luis') {
-      this.toastService.presentToast('danger', '¡Las credenciales no son correctas! 😕'); 
-    } else {
+    const token = '75c450c3f963befb912ee79f0b63e563652780f0';
+
+    const isOk = this.whiteListUsers.filter(user => {
+      return user.email.toLocaleUpperCase() === this.email.toUpperCase();
+    });
+
+    if(isOk.length > 0) {
+
+      if (this.password.toUpperCase() != 'LUIS') {
+        this.toastService.presentToast('danger', '¡Las credenciales no son correctas! 😕');
+        return;
+      }
+
       this.toastService.presentToast('success', '¡Ingreso exitoso! ✔');
-      this.router.navigate(['/home']);
       sessionStorage.setItem('token', token);
+      this.router.navigate(['/home']);
+    }else {
+      this.toastService.presentToast('danger', '¡El usuario no está registrado! 😕');
     }
   }
 

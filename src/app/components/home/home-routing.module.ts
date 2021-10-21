@@ -8,13 +8,6 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
-    children: [
-      {
-        path: 'travels',
-        // component: TabsComponent
-        loadChildren: () => import('../travels/travels.module').then(m => m.TravelsPageModule)
-      }
-    ]
   },
 ];
 

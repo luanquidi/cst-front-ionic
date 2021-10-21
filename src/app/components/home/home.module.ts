@@ -20,4 +20,4 @@ import { HeaderComponent } from './header/header.component';
   ],
   declarations: [HomePage, TabsComponent, CarrouselComponent, HeaderComponent]
 })
-export class HomePageModule {}
+export class HomePageModule { }
