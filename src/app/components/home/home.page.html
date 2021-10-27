@@ -1,13 +1,10 @@
 <app-header></app-header>
 
-<ion-content >
+<ion-content>
   <div id="main" class="ion-padding-top">
     <app-carrousel></app-carrousel>
-    <router-outlet></router-outlet>
+    <app-list-search [data]="data"></app-list-search>
+    <!-- <router-outlet></router-outlet> -->
   </div>
-
 </ion-content>
-
 <app-tabs></app-tabs>
-
-

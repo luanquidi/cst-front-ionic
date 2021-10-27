@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MENSAJES } from 'src/app/constants/mensajesConstants.constant';
+import { Usuario } from 'src/app/models/usuario';
+import { FirebaseService } from 'src/app/services/general/firebase.service';
+import { LoaderService } from 'src/app/services/general/loader.service';
 import { ToastService } from 'src/app/services/general/toast.service';
 
 @Component({
@@ -9,42 +13,31 @@ import { ToastService } from 'src/app/services/general/toast.service';
 })
 export class LoginPage implements OnInit {
 
-  email: string;
-  password: string;
-  private whiteListUsers = [
-    { email: 'luanquidi1@hotmail.com', password: 'luis' }
-  ]
+  usuario: Usuario = new Usuario();
 
-  constructor(private router: Router, private toastService: ToastService) { }
+  constructor(
+    private router: Router, 
+    private toastService: ToastService,
+    private authFirebaseService: FirebaseService,
+    private loaderService: LoaderService
+  ) { }
 
   ngOnInit(): void {
-    sessionStorage.clear();
+    this.authFirebaseService.logout();
   }
 
+
   signIn(): void {
-    if (!this.password && !this.email) {
-      this.toastService.presentToast('danger', 'Todos los campos del formulario son requeridos.');
-      return;
-    }
-    const token = '75c450c3f963befb912ee79f0b63e563652780f0';
-
-    const isOk = this.whiteListUsers.filter(user => {
-      return user.email.toLocaleUpperCase() === this.email.toUpperCase();
-    });
-
-    if(isOk.length > 0) {
-
-      if (this.password.toUpperCase() != 'LUIS') {
-        this.toastService.presentToast('danger', '¡Las credenciales no son correctas! 😕');
-        return;
+    this.loaderService.changeLoaderState$.emit({show: true});
+    this.authFirebaseService.login(this.usuario).then(res => {
+      if(res) {
+        this.loaderService.changeLoaderState$.emit({show: false});
+        this.toastService.presentToast(MENSAJES.TIPO_SUCCESS, '¡Ingreso exitoso! ✔');
+        this.router.navigate(['/home']);
+      }else {
+        this.loaderService.changeLoaderState$.emit({show: false});
       }
-
-      this.toastService.presentToast('success', '¡Ingreso exitoso! ✔');
-      sessionStorage.setItem('token', token);
-      this.router.navigate(['/home']);
-    }else {
-      this.toastService.presentToast('danger', '¡El usuario no está registrado! 😕');
-    }
+    });
   }
 
   checkIn(): void {

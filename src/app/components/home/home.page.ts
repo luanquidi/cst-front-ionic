@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SitioTuristicoService } from 'src/app/services/entidades/sitio-turistico.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  
-  constructor() { }
+  data: any[] = [];
+  constructor(private sitiosTuristicosService: SitioTuristicoService) { }
 
   ngOnInit() {
+    this.sitiosTuristicosService.getSitios().subscribe(res => {
+      this.data = res;
+    })
   }
 
 }

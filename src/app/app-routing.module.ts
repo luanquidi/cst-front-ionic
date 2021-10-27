@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './components/guards/auth.guard';
+import { AuthGuard } from './services/guards/auth.guard';
+
 
 const routes: Routes = [
   {
@@ -10,6 +11,10 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./components/register/register.module').then(m => m.RegisterPageModule)
+  },
+  {
+    path: 'recover-password',
+    loadChildren: () => import('./components/forgot-password/forgot-password.module').then(m => m.ForgotPasswordPageModule)
   },
   {
     path: 'home',
@@ -22,11 +27,21 @@ const routes: Routes = [
     loadChildren: () => import('./components/travels/travels.module').then(m => m.TravelsPageModule)
   },
   {
+    path: 'forgot-password',
+    loadChildren: () => import('./components/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
+  {
+    path: 'terms-conditions',
+    loadChildren: () => import('./components/terms-conditions/terms-conditions.module').then( m => m.TermsConditionsPageModule)
+  },
+  {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
   },
   { path: "**", redirectTo: "/login" },
+
+
 ];
 @NgModule({
   imports: [

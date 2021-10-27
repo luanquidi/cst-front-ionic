@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirebaseService } from 'src/app/services/general/firebase.service';
 
 @Component({
   selector: 'app-tabs',
@@ -8,12 +9,15 @@ import { Router } from '@angular/router';
 })
 export class TabsComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private authFirebaseService: FirebaseService
+  ) { }
 
   ngOnInit() {}
 
   logout(): void {
-    sessionStorage.clear();
+    this.authFirebaseService.logout();
     this.router.navigate(['/login'])
   }
 

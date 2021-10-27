@@ -7,20 +7,20 @@
       <h1>Registro</h1>
       <div class="form-login">
 
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="nombre" type="text"
-          placeholder="Ingresa el nombre"></ion-input>
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="documento" type="text"
-          placeholder="Ingresa el documento"></ion-input>
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="correo" type="text"
-          placeholder="Ingresa el correo electrónico"></ion-input>
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="telefono" type="text"
-          placeholder="Ingresa el teléfono"></ion-input>
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="ciudad" type="text"
-          placeholder="Ingresa la ciudad"></ion-input>
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="password" type="password"
-          placeholder="Ingresa contraseña" (keyup.enter)="signIn()"></ion-input>
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="repetirPassword"
-          type="password" placeholder="Repite la contraseña" (keyup.enter)="signIn()"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.nombre"
+          type="text" placeholder="Ingresa el nombre"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.documento"
+          type="text" placeholder="Ingresa el documento"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.email"
+          type="text" placeholder="Ingresa el correo electrónico"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.telefono"
+          type="text" placeholder="Ingresa el teléfono"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.ciudad"
+          type="text" placeholder="Ingresa la ciudad"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.password"
+          type="password" placeholder="Ingresa contraseña" (keyup.enter)="register()"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.repetirPassword"
+          type="password" placeholder="Repite la contraseña" (keyup.enter)="register()"></ion-input>
 
         <div style="display: grid;">
           <ion-button (click)="register()" class="btn-block btn-form" type="button">
@@ -32,7 +32,7 @@
         </div>
 
         <a style="margin: 10px !important; text-decoration: underline; font-size: 15px; text-align: center; display: block;"
-          href="#">Terminos y condiciones</a><br>
+          [routerLink]="['/terms-conditions']" routerLinkActive="router-link-active">Terminos y condiciones</a><br>
       </div>
     </div>
   </div>

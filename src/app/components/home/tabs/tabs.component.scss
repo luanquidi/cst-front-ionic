@@ -18,3 +18,8 @@ ion-tab-bar {
 ion-icon:hover {
     color: #000 !important;
 }
+
+ion-tabs {
+    display: contents;
+    position: relative;
+}
