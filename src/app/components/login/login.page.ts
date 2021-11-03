@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
   usuario: Usuario = new Usuario();
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private toastService: ToastService,
     private authFirebaseService: FirebaseService,
     private loaderService: LoaderService
@@ -28,14 +28,14 @@ export class LoginPage implements OnInit {
 
 
   signIn(): void {
-    this.loaderService.changeLoaderState$.emit({show: true});
+    this.loaderService.changeLoaderState$.emit({ show: true });
     this.authFirebaseService.login(this.usuario).then(res => {
-      if(res) {
-        this.loaderService.changeLoaderState$.emit({show: false});
+      if (res) {
+        this.loaderService.changeLoaderState$.emit({ show: false });
         this.toastService.presentToast(MENSAJES.TIPO_SUCCESS, '¡Ingreso exitoso! ✔');
         this.router.navigate(['/home']);
-      }else {
-        this.loaderService.changeLoaderState$.emit({show: false});
+      } else {
+        this.loaderService.changeLoaderState$.emit({ show: false });
       }
     });
   }
