@@ -27,7 +27,7 @@ export class TabsComponent implements OnInit {
   }
 
   notFound(): void {
-    this.toastService.presentToast(MENSAJES.TIPO_WARNING, '¡Esta opción no se encuentra habilitada! ');
+    this.toastService.presentToast(MENSAJES.TIPO_WARNING, '¡Esta opción no se encuentra habilitada! 🕑 ');
   }
 
 }
