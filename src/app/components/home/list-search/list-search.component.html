@@ -7,7 +7,7 @@
     animated
   ></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let item of data | filtro:textoBuscar:'nombre'">
+    <ion-item *ngFor="let item of data | filtro:textoBuscar:'nombre'" (click)="showModal(item)">
       <ion-avatar slot="start">
         <img [src]="item.imagen">
       </ion-avatar>

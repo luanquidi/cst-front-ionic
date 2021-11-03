@@ -1,0 +1,29 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title> Información </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <img [src]="sitio.imagen" />
+    <ion-card-content>
+      <ion-card-title>
+        {{ sitio.nombre }}
+      </ion-card-title>
+      <ion-note>
+        {{ sitio.municipio }}
+      </ion-note>
+      <p>
+        {{ sitio.descripcion }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button color="dark" expand="full" (click)="back()">
+    Salir
+  </ion-button>
+</ion-footer>

@@ -14,15 +14,21 @@ import { ListSearchComponent } from './list-search/list-search.component';
 import { FiltroPipe } from 'src/app/pipes/filtro.pipe';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { RouterModule } from '@angular/router';
+import { ModalPage } from '../modal/modal.page';
+import { ModalPageModule } from '../modal/modal.module';
 
 @NgModule({
+  entryComponents: [
+    ModalPage
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
     PipesModule,
-    RouterModule
+    RouterModule,
+    ModalPageModule
   ],
   declarations: [
     HomePage, 
