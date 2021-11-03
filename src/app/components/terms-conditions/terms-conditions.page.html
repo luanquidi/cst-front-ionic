@@ -20,10 +20,10 @@
         </ion-text>
 
         <div style="display: grid;">
-          <ion-button (click)="aceptTerms()" class="btn-block btn-form"  style="margin-top: 20px" type="button">
+          <ion-button *ngIf="!isAceptTerms" (click)="aceptTerms()" class="btn-block btn-form"  style="margin-top: 20px" type="button">
             Aceptar
           </ion-button>
-          <ion-button (click)="backLogin()" class="btn-block btn-form" type="button">
+          <ion-button (click)="backLogin()"  class="btn-block btn-form" type="button">
             Iniciar sesión
           </ion-button>
         </div>

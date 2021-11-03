@@ -11,6 +11,8 @@ import { ToastService } from 'src/app/services/general/toast.service';
   styleUrls: ['./terms-conditions.page.scss'],
 })
 export class TermsConditionsPage implements OnInit {
+  
+  isAceptTerms = false;
 
   constructor(
     private router: Router,
@@ -21,9 +23,15 @@ export class TermsConditionsPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('terms-condition')) {
+      this.isAceptTerms = true;
+    }
   }
 
-  aceptTerms(): void {}
+  aceptTerms(): void {
+    this.isAceptTerms = true;
+    localStorage.setItem('terms-condition', "true");
+  }
 
   backLogin(): void {
     this.router.navigate(['/login']);
