@@ -34,7 +34,7 @@ export class TermsConditionsPage implements OnInit {
   }
 
   backLogin(): void {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/register']);
   }
 
 }

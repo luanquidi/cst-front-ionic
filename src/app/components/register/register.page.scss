@@ -14,7 +14,7 @@
   
   .login-box {
     width: 80%;
-    height: 635px;
+    height: 660px;
     background: #00000094;
     color: #fff;
     top: 53%;
@@ -97,4 +97,8 @@
   .alert-toast{
     background: #0D607E !important;
     text-align: center;
+  }
+
+  .my-class-error {
+    border-bottom: 2px solid #bd2837 !important;
   }

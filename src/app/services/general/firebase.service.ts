@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators';
 import { MENSAJES } from 'src/app/constants/mensajesConstants.constant';
 import { Usuario } from 'src/app/models/usuario';
+import { UsuarioService } from '../entidades/usuario.service';
 import { ToastService } from './toast.service';
 
 
@@ -16,7 +17,8 @@ export class FirebaseService {
   constructor(
     private afAuth: AngularFireAuth,
     private alertService: ToastService,
-    private firestoreService: AngularFirestore
+    private firestoreService: AngularFirestore,
+    private usuarioService: UsuarioService
   ) { }
 
   async login(usuario: Usuario): Promise<any> {

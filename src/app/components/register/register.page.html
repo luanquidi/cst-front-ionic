@@ -5,22 +5,39 @@
         src="https://png.pngtree.com/template/20190809/ourlarge/pngtree-mountains-logo-vector-template-image_291029.jpg"
         class="avatar" alt="Avatar Image">
       <h1>Registro</h1>
-      <div class="form-login">
+      <div class="form-login" [formGroup]="form" ngNativeValidate>
 
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.nombre"
-          type="text" placeholder="Ingresa el nombre"></ion-input>
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.documento"
-          type="text" placeholder="Ingresa el documento"></ion-input>
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.email"
-          type="text" placeholder="Ingresa el correo electrónico"></ion-input>
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.telefono"
-          type="text" placeholder="Ingresa el teléfono"></ion-input>
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.ciudad"
-          type="text" placeholder="Ingresa la ciudad"></ion-input>
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.password"
-          type="password" placeholder="Ingresa contraseña" (keyup.enter)="register()"></ion-input>
-        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" [(ngModel)]="usuario.repetirPassword"
-          type="password" placeholder="Repite la contraseña" (keyup.enter)="register()"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" formControlName="nombre"
+          [(ngModel)]="usuario.nombre" type="text" placeholder="Ingresa el nombre"
+          [ngClass]="{'my-class-error': form.controls['nombre'].invalid}"></ion-input>
+        <!-- [ngClass]="{'class': form.controls['idCentro'].invalid}" -->
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" formControlName="documento"
+          [(ngModel)]="usuario.documento" type="text" placeholder="Ingresa el documento"
+          [ngClass]="{'my-class-error': form.controls['documento'].invalid}"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" formControlName="email"
+          [(ngModel)]="usuario.email" type="text" placeholder="Ingresa el correo electrónico"
+          [ngClass]="{'my-class-error': form.controls['email'].invalid}"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" formControlName="telefono"
+          [(ngModel)]="usuario.telefono" type="text" placeholder="Ingresa el teléfono"
+          [ngClass]="{'my-class-error': form.controls['telefono'].invalid}"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" formControlName="ciudad"
+          [(ngModel)]="usuario.ciudad" type="text" placeholder="Ingresa la ciudad"
+          [ngClass]="{'my-class-error': form.controls['ciudad'].invalid}"></ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" formControlName="password"
+          [(ngModel)]="usuario.password" type="password" placeholder="Ingresa contraseña" (keyup.enter)="register()"
+          [ngClass]="{'my-class-error': form.controls['password'].invalid}">
+        </ion-input>
+        <ion-input style="border-bottom: 2px solid #0D607E; margin-bottom: 10px;" formControlName="repetirPassword"
+          [(ngModel)]="usuario.repetirPassword" type="password" placeholder="Repite la contraseña"
+          (keyup.enter)="register()" [ngClass]="{'my-class-error': form.controls['repetirPassword'].invalid}">
+        </ion-input>
+        <div style="display: flex; align-items: center;">
+          <ion-checkbox color="primary" formControlName="terminosCondiciones" [(ngModel)]="usuario.terminosCondiciones">
+          </ion-checkbox>
+          <ion-label style="margin-left: 5px; margin-bottom: 5px;">Aceptar terminos y condiciones.</ion-label>
+        </div>
+
+
 
         <div style="display: grid;">
           <ion-button (click)="register()" class="btn-block btn-form" type="button">
@@ -32,7 +49,7 @@
         </div>
 
         <a style="margin: 10px !important; text-decoration: underline; font-size: 15px; text-align: center; display: block;"
-          [routerLink]="['/terms-conditions']" routerLinkActive="router-link-active">Terminos y condiciones</a><br>
+          [routerLink]="['/terms-conditions']" routerLinkActive="router-link-active">Ver Terminos y condiciones</a><br>
       </div>
     </div>
   </div>
