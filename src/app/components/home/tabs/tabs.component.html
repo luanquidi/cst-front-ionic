@@ -3,38 +3,26 @@
     <ion-tab-button [routerLink]="['/home']" [class.active-item]="selectedPath.includes('home')" style="background-color: transparent;">
       <ion-icon name="home"></ion-icon>
     </ion-tab-button>
-    <ion-tab-button (click)="showAlert()" style="background-color: transparent;">
+
+    <ion-tab-button (click)="notFound();" style="background-color: transparent;">
       <ion-icon name="airplane"></ion-icon>
     </ion-tab-button>
-    <ion-tab-button (click)="showAlert()" style="background-color: transparent;">
+
+    <ion-tab-button (click)="notFound();" style="background-color: transparent;">
       <ion-icon name="location"></ion-icon>
     </ion-tab-button>
-    <ion-tab-button (click)="showAlert()" style="background-color: transparent;">
-      <ion-icon name="calendar-number"></ion-icon >
+
+    <ion-tab-button (click)="notFound();" style="background-color: transparent;">
+      <ion-icon name="calendar-number"></ion-icon>
     </ion-tab-button>
-    <ion-tab-button (click)="showAlert()" style="background-color: transparent;">
+
+    <ion-tab-button (click)="notFound();" style="background-color: transparent;">
       <ion-icon name="fast-food"></ion-icon>
-    </ion-tab-button>
+    </ion-tab-button> -->
+    
     <ion-tab-button (click)="logout();" style="background-color: transparent;">
       <ion-icon name="exit"></ion-icon>
     </ion-tab-button>
-    <!-- <ion-tab-button [routerLink]="['/travels']" style="background-color: transparent;">
-      <ion-icon name="airplane"></ion-icon>
-    </ion-tab-button>
 
-    <ion-tab-button [routerLink]="['/locations']" style="background-color: transparent;">
-      <ion-icon name="location"></ion-icon>
-    </ion-tab-button>
-
-    <ion-tab-button [routerLink]="['/events']" style="background-color: transparent;">
-      <ion-icon name="calendar-number"></ion-icon >
-    </ion-tab-button>
-
-    <ion-tab-button [routerLink]="['/food']" style="background-color: transparent;">
-      <ion-icon name="fast-food"></ion-icon>
-    </ion-tab-button> -->
-
-    
-    
   </ion-tab-bar>
 </ion-tabs>

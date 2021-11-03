@@ -4,6 +4,7 @@ import { MENSAJES } from 'src/app/constants/mensajesConstants.constant';
 import { FirebaseService } from 'src/app/services/general/firebase.service';
 import { ToastService } from 'src/app/services/general/toast.service';
 
+
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',
@@ -31,8 +32,8 @@ export class TabsComponent implements OnInit {
     this.router.navigate(['/login'])
   }
 
-  showAlert(): void {
-    this.toastService.presentToast(MENSAJES.TIPO_ERROR, '¡Proximamente! 🕓')
+  notFound(): void {
+    this.toastService.presentToast(MENSAJES.TIPO_WARNING, '¡Esta opción no se encuentra habilitada! 🕑 ');
   }
 
 }
