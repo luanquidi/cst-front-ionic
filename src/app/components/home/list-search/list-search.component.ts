@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ModalPage } from '../../modal/modal.page';
 
 @Component({
   selector: 'app-list-search',
@@ -10,7 +12,9 @@ export class ListSearchComponent implements OnInit {
   @Input() data: any[] = [];
   textoBuscar: string = '';
 
-  constructor() { }
+  constructor(
+    private modalCtrl: ModalController
+  ) { }
 
   ngOnInit() {
   }
@@ -18,6 +22,17 @@ export class ListSearchComponent implements OnInit {
   onSearchChange( event ) {
     console.log(event);
     this.textoBuscar = event.detail.value;
+  }
+
+  async showModal(item: any){
+    const modal = await this.modalCtrl.create({
+      component: ModalPage,
+      componentProps: {
+        sitio: item,
+      }
+    });
+
+    await modal.present();
   }
 
 }
